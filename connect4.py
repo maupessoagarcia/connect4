@@ -22,7 +22,7 @@ def main():
     symbols = ["X", "O"]
     intro()
     print_board(board)
-    while endgame():
+    while not endgame():
         active_player = abs(active_player -1)
         col = int(input(f"{players[active_player]} player, it's your turn. Choose a column: "))
         process_choice(col)
@@ -60,21 +60,6 @@ def intro():
 def endgame():
     return False
     
-
-
-def placement(board):
-    pass
-
-def intro():
-    print("------------------------")
-    print("Welcome to Connect4 Game")
-    print("------------------------")
-   
-
-
-def endgame():
-    return True
-
 
     
 
