@@ -24,15 +24,39 @@ def main():
     print_board(board)
     while not endgame():
         active_player = abs(active_player -1)
-        col = int(input(f"{players[active_player]} player, it's your turn. Choose a column: "))
-        process_choice(col)
+        choice = validate_choice(players,active_player)
+        
 
 
 
+def check_placement(col, board,symbols, active_player):
+    for i in range(5,-1,-1):
+        if board[i][col-1] == None:
+            return True
+    print("Column full, try another column")
+    return False
+        
+    
 
-def process_choice(col):
-    pass
-    #CONTINUE HERE
+
+def validate_choice(players, active_player):
+    valid = False
+    while not valid:
+        col = input(f"{players[active_player]} player, it's your turn. Choose a column: ")
+        try:
+           col = int(col) 
+        except:
+            print("Please enter a number between 1 and 7")
+            continue
+        if col<1 or col>7:
+            print("Please enter a number between 1 and 7")
+            continue
+        valid = True
+    
+    return col
+        
+
+    
 
 
 
