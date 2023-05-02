@@ -23,7 +23,7 @@ def main():
     symbols = ["X", "O"]
     intro()
     print_board(board)
-    while not endgame():
+    while not endgame(board):
         play=""
         active_player = abs(active_player -1)
         print(f"{players[active_player]} player, it's your turn")
@@ -112,7 +112,26 @@ def intro():
    
 
 
-def endgame():
+def endgame(board):
+    #horizontals
+    for line in board:
+        check = 0
+        symbol = ""
+        for sym in line:
+            if sym==None:
+                check=0
+            elif symbol =="" or sym == symbol:
+                check+=1
+                symbol == sym
+            else:
+                check=0
+                symbol == sym
+            if check == 4:
+                print("WINNER")
+                return True
+        
+    #verticals
+    #diagonals
     return False
     
 
