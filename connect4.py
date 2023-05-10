@@ -110,10 +110,7 @@ def intro():
     print("Welcome to Connect4 Game")
     print("------------------------")
    
-
-
-def endgame(board):
-    #horizontals
+def horizontal_check(board):
     for line in board:
         check = 0
         symbol = ""
@@ -129,10 +126,27 @@ def endgame(board):
             if check == 4:
                 print("WINNER")
                 return True
+    return False
+
+def endgame(board):
+    #horizontal
+    if horizontal_check(board):
+        return True 
         
     #verticals
+    #form new "board"
+    new_board = [[],[],[],[],[],[],[]]
+    for line in board:
+        for idx, cell in enumerate(line):
+            new_board[idx].append(cell)
+    if horizontal_check(new_board):
+        return True 
+
+
+
+
     #diagonals
-    return False
+    
     
 
     
