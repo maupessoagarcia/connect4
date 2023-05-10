@@ -142,10 +142,22 @@ def endgame(board):
     if horizontal_check(new_board):
         return True 
 
-
-
-
     #diagonals
+    diag_board = [[],[],[],[],[],[],[],[],[],[],[],[]]
+    diag_schema = ["30211203","4031221304","504132231405","514233241506","5243342516","53443526","20314253","1021324354","001122334455","011223344556","0213243546","03142536"]
+    for index,schema in enumerate(diag_schema):
+        while schema != "":
+            ind1 = int(schema[0])
+            ind2 = int(schema[1])
+            diag_board[index].append(board[ind1][ind2])
+            schema = schema[2:]
+    if horizontal_check(diag_board):
+        return True
+    return False
+    
+
+    
+
     
     
 
