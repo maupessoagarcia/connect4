@@ -122,10 +122,10 @@ def endgame(board):
                 check=0
             elif symbol =="" or sym == symbol:
                 check+=1
-                symbol == sym
+                symbol = sym
             else:
-                check=0
-                symbol == sym
+                check=1
+                symbol = sym
             if check == 4:
                 print("WINNER")
                 return True
